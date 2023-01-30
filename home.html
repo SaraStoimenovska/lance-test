@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/plyr.polyfilled.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.cookie.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/plyr.css">
+    <link rel="stylesheet" type="text/css" href="css/course_video.css">
+
+    <style>
+      body {
+        margin: 0;
+        /* margin: auto;
+        width: 60%; */
+        font-family: 'HelveticaNeue Bold', Helvetica, sans-serif;
+        font-weight: bold;
+      }
+
+      ul.sidenav {
+        list-style-type: none;
+        margin: 0;
+        padding: 0 50px;
+        background-color: #d8d8d8;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        font-size: 20px;
+      }
+
+      ul.sidenav > * {
+        display: flex;
+      }
+
+      ul.sidenav li a {
+        color: #ea5a2a;
+        text-decoration: none;
+        padding: 20px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+      }
+
+      ul.sidenav li a.active {
+        background-color: #ea5a2a;
+        color: white;
+      }
+
+      ul.sidenav li a:hover:not(.active) {
+        background-color: #555;
+        color: white;
+      }
+
+      div.content {
+        margin: 0;
+        padding: 0;
+      }
+
+      .video-holder, .gif-section {
+        position: relative;
+      }
+
+      .js-video {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+
+      .video-text {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translate(-5%, -50%);
+      }
+
+      .orange {
+        color: #ea5a2a
+      }
+
+      .blue {
+        color: #23254f;
+      }
+
+      .title {
+        font-size: 60px;
+      }
+
+      .subtitle {
+        font-size: 44px;
+      }
+
+      .quote-section, .section-promise {
+        background-color: #ea5a2a;
+        color: white;
+        display: flex;
+        align-items: center;
+      }
+
+      .quote-text, .promise-text {
+        padding: 50px 0 0 150px;
+      }
+
+      .quote-text p, .promise-text p {
+        display: inline-block;
+      }
+      
+      .quote-text p:not(.subtitle), .promise-text p:not(.subtitle) {
+        font-size: 30px;
+        font-weight: normal;
+      }
+
+      .a-logo {
+        object-fit: cover;
+        object-position: 100% 0%;
+        width: 450px;
+        height: 600px;
+      }
+
+      .quote-btn {
+        background-color: white;
+        padding: 15px;
+        border: none;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+
+      .gif-text {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -0%);
+      }
+
+      .testimonials {
+        padding-bottom: 50px;
+      }
+
+      .testimonials-text {
+        text-align: center;
+      }
+
+      .reviews {
+        display: flex;
+        align-items: center;
+      }
+
+      .review-box {
+        position: relative;
+        margin: 0 10px;
+      }
+
+      .review-box-img {
+        width: 100%;
+      }
+
+      .review-box-container {
+        position: absolute;
+        top: 115px;
+      }
+
+      .stars-img {
+        width: 30%;
+        position: absolute;
+        left: 5px;
+        top: 10px;
+      }
+
+      .google-img {
+        width: 15%;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+      }
+
+      .text-container {
+        width: 90%;
+        position: relative;
+        /* right: 10px; */
+        top: 85px;
+        margin: auto;
+        font-size: 22px;
+        text-align: center;
+      }
+
+      .quotes {
+        color: orange;
+        font-size: 50px;
+        /* display: inline-block; */
+        /* height: 30px; */
+        position: absolute;
+        /* top: 12px; */
+        /* vertical-align: sub; */
+        /* content: "\201C"; */
+        font-family: auto;
+        margin-top: -10px;
+      }
+
+      .quotes.start::before, .quotes.end::after {
+        content: "\201C";
+      }
+
+      .quotes.start {
+        margin-left: -30px;
+      }
+
+      .quotes.end {
+        margin-right: 15px;
+      }
+
+      .author {
+        color: #ea5a2a;
+        font-style: italic;
+        font-weight: bold;
+      }
+
+      .arrow {
+        font-size: 225px;
+        font-weight: 100;
+        color: #ea5a2a;
+        font-family: monospace;
+      }
+
+      .section-promise {
+        padding: 50px 100px;
+      }
+
+      .guarantee-img {
+        width: 30%;
+    transform: rotate(-30deg);
+    margin-right: 50px;
+    /* display: flex; */
+      }
+
+      @media screen and (max-width: 400px) {
+        ul.sidenav li a {
+          text-align: center;
+          float: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="sidenav">
+      <li class="logo">
+        <a href="#home"><img height="50px" src="./assets/logo.png" /></a>
+      </li>
+      <div class="menu-icons">
+        <li><a href="#home">H</a></li>
+        <li><a href="#news">N</a></li>
+        <li><a href="#contact">C</a></li>
+        <li><a href="#about">A</a></li>
+      </div>
+      <div class="menu-items">
+        <li><a class="active" href="#">Instant Qoute</a></li>
+        <li><a href="#">How it Works</a></li>
+        <li><a href="#">Services ></a></li>
+        <li><a href="#">More ></a></li>
+      </div>
+    </ul>
+
+    <div class="content">
+      <section class="video-section">
+        <div class="video-holder">
+            <video class="js-video" playsinline autoplay muted>
+              <source src="assets/videos/arkifuture-floorplan-360p.mp4" type="video/mp4" size="360" />
+              <source src="assets/videos/arkifuture-floorplan-720p.mp4" type="video/mp4" size="720" />
+              <source  src="assets/videos/arkifuture-floorplan-1080p.mp4" type="video/mp4" size="1080" />
+            </video>
+            <div class="video-text">
+                <p class="orange title">We design & draw new builds, <br/>home extensions & loft conversions <br/>
+                    architect plans for your UK planning <br/>permissions or consent orders.
+                </p>
+                <p class="blue subtitle">A fixed fee, architectural planning service with an <br/>
+                    option for interior design and 3D visualisation...
+                </p>
+                <p class="orange subtitle">We have your back!</h3>
+            </div>
+        </div>
+      </section>
+      <section class="quote-section">
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+        <div class="quote-text">
+          <p class="subtitle">Simplifying the architectural process for UK planning<br />
+            permissions, consent orders and architectual plans...
+          </p>
+          <p>
+            We are architectural designers - offering a fixed fee service for your planning<br/>
+            permission plans for your next building project. If your project is just a home<br/>
+            extension, loft conversion or a new build project - we have you covered.
+          </p>
+          <p>
+            The traditional architectural process for regular home owners can be slow and<br/>
+            clunky, expensive and out-dated. Our approach is modern, smooth running<br/>
+            and its super fast. We advise, design, draw and obtain all planning consents
+            on your behalf.
+          </p>
+          <p>
+            Arkifuture produces all the planning drawings and building regulations plans<br />
+            online for a fixed price. Not only that, if you require 3D perpective views<br />
+            of your building project or a 3D video fly through we do this as well. Our service<br />
+            also allows for external and/or interior design by our architectural experts,<br />
+            For example, if you require your house design or room layout to reflect<br />
+            'FengShui' principles we have you covered.
+          </p>
+          <p>
+            So, once you pay your initial deposit of £299 we will contact you to arrange for a<br />
+            planning/design meetings over video-call. So you can grab a cup of tea and put<br />
+            your feet up, relax and await our call.
+          </p>
+          <p>
+            Once the design discussions are finalised, we get to work immediately - so you<br/>
+            can get building!
+          </p>
+          <br/>
+          <button class="quote-btn orange subtitle">Instant Quote</button>
+        </div>
+      </section>
+      <section class="gif-section">
+        <img src="assets/graphic-gif.gif" alt="5 steps graphic" width="100%" />
+        <p class="orange title gif-text">Our 5 Step process...</p>
+      </section>
+      <section class="testimonials">
+        <div class="blue testimonials-text">
+          <p class="title">ArkiFuture testimionals</p>
+          <h2>Read what our clients say about us...</h2>
+        </div>
+        <div class="reviews">
+          <div class="arrow">&lt;</div>
+          <div class="review-box">
+            <img class="review-box-img" src="assets/review-box.png" width="30%" />
+            <div class="review-box-container">
+              <img class="stars-img" src="assets/stars-voting-4-stars-rating.png" width="50" />
+              <img class="google-img" src="assets/google.png" width="50" />
+              <div class="text-container">
+                <p><span class="quotes start"></span>Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Pellentesque consequat
+                  congue orci, finibus vestibulum ex
+                  fringilla id. Vivamus dapibus mauris
+                  consectetur sem pretium, vel faucibus
+                  nunc finibus media<span class="quotes end"></span></p>
+                  <p class="author">Steph Smith</p>
+              </div>
+            </div>
+          </div>
+          <div class="review-box">
+            <img class="review-box-img" src="assets/review-box.png" width="30%" />
+            <div class="review-box-container">
+              <img class="stars-img" src="assets/stars-voting-5-stars-rating.png" width="50" />
+              <img class="google-img" src="assets/google.png" width="50" />
+              <div class="text-container">
+                <p><span class="quotes start"></span>Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Pellentesque consequat
+                  congue orci, finibus vestibulum ex
+                  fringilla id. Vivamus dapibus mauris
+                  consectetur sem pretium, vel faucibus
+                  nunc finibus media<span class="quotes end"></span></p>
+                  <p class="author">Jane dowe</p>
+              </div>
+            </div>
+          </div>
+          <div class="review-box">
+            <img class="review-box-img" src="assets/review-box.png" width="30%" />
+            <div class="review-box-container">
+              <img class="stars-img" src="assets/stars-voting-5" width="50" />
+              <img class="google-img" src="assets/google.png" width="50" />
+              <div class="text-container">
+                <p><span class="quotes start"></span>Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Pellentesque consequat
+                  congue orci, finibus vestibulum ex
+                  fringilla id. Vivamus dapibus mauris
+                  consectetur sem pretium, vel faucibus
+                  nunc finibus media<span class="quotes end"></span></p>
+                  <p class="author">Rob Jones</p>
+              </div>
+            </div>
+          </div>
+          <div class="arrow">&gt;</div>
+        </div>
+      </section>
+      <section class="section-promise">
+        <img class="guarantee-img" src="assets/30-days-money-back-guarantee-platzhirsch-hd-png.png" />
+        <div class="promise-text">
+          <p class="subtitle">Our Promise to you</p>
+          <p>We do not do spirling costs or want you to have any unexpected surprises,<br/>
+            so the price you see is the final price you pay.
+          </p>
+          <p>With all our work you get 3 sets of changes included in our price.<br/>
+            If you require additional plans this will be quoted at an additional cost as<br/>
+            per our <span class="blue">terms & conditions.</span>
+          </p>
+          <p>
+            In the unfortuante event, that you are not happy with our work, we will<br/>
+            issuse a full refund - Guaranteed!
+          </p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
