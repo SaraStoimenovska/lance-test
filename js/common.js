@@ -12,15 +12,16 @@ function toggleMenu() {
   }
 }
 
-let slideIndex = 1;
-showSlides(slideIndex);
+let slideIndex;
+
+function slideShow() {
+  slidesLength = document.getElementsByClassName("review").length;
+  slideIndex = Math.floor((Math.random() * slidesLength) + 1);
+  showSlides(slideIndex);
+}
 
 function plusSlides(n) {
   showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
 }
 
 function showSlides(n) {
