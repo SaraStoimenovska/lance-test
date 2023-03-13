@@ -1,0 +1,13 @@
+.section-course-video {
+    position: relative;
+    color: #fff;
+}
+.section-course-video:before {
+    position: absolute;
+    content: '';
+    left: 0; right: 0;
+    top: 0;
+    bottom: calc(50% - 20px);
+    background: #e4b720;
+    z-index: -1;
+}
