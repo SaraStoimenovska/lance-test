@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="js/common.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/plyr.polyfilled.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.cookie.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/plyr.css">
+    <link rel="stylesheet" type="text/css" href="css/course_video.css">
+
+    <link rel="stylesheet" type="text/css" href="css/common.css">
+
+    <style>
+      main.content {
+        margin: 0;
+        padding: 0;
+      }
+
+      .video-holder,
+      .gif-section {
+        position: relative;
+      }
+
+      .js-video {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+
+      .video-text {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translate(-5%, -50%);
+      }
+
+      .quote-section {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .quote-section.step-1 {
+        background-color: #6e6f6a;
+      }
+
+      .quote-section.step-2 {
+        background-color: #eb665f;
+      }
+
+      .quote-section.step-3 {
+        background-color: #5ca0ad;
+      }
+
+      .quote-section.step-4 {
+        background-color: #1e2c51;
+      }
+
+      .quote-section.step-5 {
+        background-color: #9daa27;
+      }
+
+      .quote-text p:not(.subtitle):not(.title) {
+        font-size: 22px;
+        font-weight: normal;
+      }
+
+      .quote-section.step-1 .quote-text,
+      .quote-section.step-3 .quote-text,
+      .quote-section.step-5 .quote-text {
+        padding: 50px 150px 0 50px;
+      }
+
+      .quote-section.step-2 .quote-text,
+      .quote-section.step-4 .quote-text {
+        padding: 50px 50px 0 150px;
+        text-align: right;
+      }
+
+      .quote-section.step-2 .a-logo,
+      .quote-section.step-4 .a-logo {
+        object-position: 0;
+      }
+
+      .a-logo {
+        object-fit: cover;
+        object-position: 100% 0%;
+        width: 450px;
+        height: 600px;
+      }
+
+      .quote-btn {
+        background-color: white;
+        padding: 15px;
+        border: none;
+        font-weight: bold;
+        margin: 20px 0;
+      }
+
+      .gif-text {
+        position: absolute;
+        top: 0%;
+        left: 50%;
+        transform: translate(-50%, -0%);
+      }
+
+      @media only screen and (max-width: 600px) {
+        .video-text {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+
+        .quote-section .a-logo {
+          width: 50px;
+          height: 65px;
+        }
+
+        .quote-text p:not(.subtitle):not(.title) {
+          font-size: 10px;
+        }
+
+        .quote-section.step-1 .quote-text,
+        .quote-section.step-3 .quote-text,
+        .quote-section.step-5 .quote-text {
+          padding: 0 20px;
+        }
+
+        .quote-section.step-2 .quote-text,
+        .quote-section.step-4 .quote-text {
+          padding: 20px;
+        }
+
+        .quote-section br {
+          display: none;
+        }
+
+        .quote-btn {
+          margin-top: 0;
+        }
+      }
+    </style>
+  </head>
+  <body onload="slideShow();">
+    <ul class="sidenav">
+      <li class="logo">
+        <a href="./home.html"><img height="50px" src="./assets/logo.png" /></a>
+      </li>
+      <div class="menu-icons">
+        <li><a href="#"><img src="assets/facebook-icon.png" /></a></li>
+        <li><a href="#"><img src="assets/instagram-icon.png" /></a></li>
+        <li><a href="#"><img src="assets/twitter-icon.png" /></a></li>
+        <li><a href="#"><img src="assets/tik-tok-icon.png" /></a></li>
+      </div>
+      <div class="menu-items topnav"  id="myTopnav">
+        <li><a class="active" href="#">Instant Quote</a></li>
+        <li><a href="./how-it-works.html">How it Works</a></li>
+        <li><a href="#">Services ></a></li>
+        <li><a href="#">More ></a></li>
+        <a href="javascript:void(0);" class="icon">
+          <img class="menu-icon" src="assets/menu-icon.png" onclick="toggleMenu()"/>
+        </a>
+      </div>
+    </ul>
+    <ul class="sidenav-responsive fade" id="myResponsiveTopnav">
+      <li><a href="./how-it-works.html">How it Works</a></li>
+      <li><a href="#">Services ></a></li>
+      <li><a href="#">More ></a></li>
+    </ul>
+
+    <main class="content">
+      <section class="video-section">
+        <div class="video-holder">
+            <video class="js-video" playsinline autoplay muted loop>
+              <source src="assets/videos/arkifuture-floorplan-360p.mp4" type="video/mp4" size="360" />
+              <source src="assets/videos/arkifuture-floorplan-720p.mp4" type="video/mp4" size="720" />
+              <source  src="assets/videos/arkifuture-floorplan-1080p.mp4" type="video/mp4" size="1080" />
+            </video>
+            <div class="video-text">
+                <p class="orange title">How it works...</p>
+                <p class="blue subtitle">Follow our simple 5 step process <br/>
+                  below and you will have your planning, <br/>
+                  permission, consent order or architectual <br/>
+                  plans in within 7 days*
+                </p>
+            </div>
+        </div>
+      </section>
+      <section class="quote-section step-1">
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+        <div class="quote-text">
+          <p class="title">Step 1</p>
+          <p class="subtitle">
+            Get an instant quote for your planning permission,
+            consent order architectual plans and your journey
+            begins...
+          </p>
+          <p>
+            Once you have received our quote and you would like to go ahead, simply pay
+            your £299.00 deposit and the process begins. If you have any questions before
+            comiting to our service please email on info@arkifuture.com or call +44 (0) 000
+            0000 during office hours with your questions.
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Instant Quote</button>
+        </div>
+      </section>
+
+      <section class="quote-section step-2">
+        <div class="quote-text">
+          <p class="title">Step 2</p>
+          <p class="subtitle">
+            Book your 3D property scan or send us
+            your measurents and photographys...
+          </p>
+          <p>
+            Once the deposit has been made you will get a conformation email from us and
+            a call from us to book our ‘techie’ person to pop around to your location to do a
+            3D scan of your house. Or if you did not require our 3D scanning service you
+            can send in your measurements of your refurbishment/development along with photographs.
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Instant Quote</button>
+        </div>
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+      </section>
+
+      <section class="quote-section step-3">
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+        <div class="quote-text">
+          <p class="title">Step 3</p>
+          <p class="subtitle">Its time to meet our architectual designer...</p>
+          <p>
+            We will arrange for video call with screen share at a convenient ime to talk about
+            your development, refurbishment or new build project. We will discuss
+            your needs and requirement and answer any call that you may have.
+          </p>
+          <p>
+            For example, you may have sketched out a new interior layout that wants refining
+            to finalising we would advise your the best use of interor or exteria space. If you
+            selected our ‘Feng Shui’ option in our <b class="blue bold">instant quote</b> we will suggest a layout that
+            best reflects the Feng Shui principles.
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Instant Quote</button>
+        </div>
+      </section>
+
+      <section class="quote-section step-4">
+        <div class="quote-text">
+          <p class="title">Step 4</p>
+          <p class="subtitle">
+            Our architectual team is busy designing and drawing up your plans...
+          </p>
+          <p>
+            After the design and property layout meeting our team of architectual designers
+            gets to work. If you have ordered the standard package you will receive
+            your draft plans with 14-21 days of step 3 above. Once you have your
+            draft set of plans you get 3 sets (rounds) of unlimited changes
+            to finalise your plans.
+          </p>
+          <p>
+            If you paid the additional premium of our 7 day service,
+            You will receive them within 7 days of step 3 above.
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Instant Quote</button>
+        </div>
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+      </section>
+
+      <section class="quote-section step-5">
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+        <div class="quote-text">
+          <p class="title">Step 5</p>
+          <p class="subtitle">
+            Bring your dream development to life with our<br />
+            interior designer and 3D visualisation.
+          </p>
+          <p>
+            If you select this option for ‘interior design’ our designers will create 3D visuals of
+            your project from the plans from step 4 above. We will know your styling requirements
+            from our step 3 meeting above.This really helps in visualising and planning your
+            development, prior to building. You can see some examples of our interior design
+            samples.
+          </p>
+          <p>
+            For 3d walkthrough video this is a popular service for showing investors, clients the
+            finished development.
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Instant Quote</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="testimonials">
+        <div class="blue testimonials-text">
+          <p class="title">ArkiFuture testimionals</p>
+        </div>
+        <div class="reviews">
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-4-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id. Vivamus dapibus mauris
+                    consectetur sem pretium, vel faucibus
+                    nunc finibus media</span>
+                  </p>
+                  <p class="author">Jon Doe</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-5-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id.</span>
+                  </p>
+                  <p class="author">Anna Maria</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-4-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id. Vivamus dapibus mauris
+                    consectetur sem pretium, vel faucibus
+                    nunc finibus media</span>
+                  </p>
+                  <p class="author">Steph Smith</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-5-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id.</span>
+                  </p>
+                  <p class="author">Samantha Fox</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-promise">
+        <img class="guarantee-img" src="assets/30-days-money-back-guarantee-platzhirsch-hd-png.png" />
+        <div class="promise-text">
+          <p class="title">Our Promise to you</p>
+          <p>We do not do spirling costs or want you to have any unexpected surprises,
+            so the price you see is the final price you pay.
+          </p>
+          <p>With all our work you get 3 sets of changes included in our price.
+            If you require additional plans this will be quoted at an additional cost as
+            per our <a href="#" style="text-decoration: none;" class="blue">terms & conditions.</a>
+          </p>
+          <p>
+            In the unfortuante event, that you are not happy with our work, we will
+            issuse a full refund - Guaranteed!
+          </p>
+        </div>
+      </section>
+      <section class="section-featured">
+        <p class="blue title featured-text">As featured in...</p>
+        <div class="featured-container">
+          <div class="featured-image-container">
+            <img src="assets/google review logo.png" />
+          </div>
+          <div class="featured-image-container">
+            <img src="assets/AJ+logo.png" />
+          </div>
+          <div class="featured-image-container">
+            <img src="assets/houzz.png" />
+          </div>
+          <div class="featured-image-container">
+            <img src="assets/trustpilot.png" />
+          </div>
+        </div>
+      </section>
+      <section class="section-footer blue-background">
+        <div class="footer-container">
+          <div>
+            <p>Our social connections:</p>
+            <div class="social-icons">
+              <img src="assets/facebook-white-icon.png" />
+              <img src="assets/instagram-white-icon.png" />
+              <img src="assets/twitter-white-icon.png" />
+              <img src="assets/tik-tok-white-icon.png" />
+            </div>
+            <div class="no-margin">
+              <p>© Copyright ArkiFuture 2023.</p>
+              <p>© ArkiFuture is the trademark for ArkiFuture Limited.</p>
+              <p>All Rights Reserved</p>
+            </div>
+          </div>
+          <div class="footer-address">
+            <p>ArkiFuture Limited</p>
+            <p>20-22 WenlockRoad, London, N1 7GU</p>
+            <p>United Kingdom</p>
+            <p>Email: <a href="mailto:info@arkifuture.com">info@arkifuture.com</a></p>
+          </div>
+          <div class="copyright-mobile">
+            <p>© Copyright ArkiFuture 2023.</p>
+            <p>© ArkiFuture is the trademark for ArkiFuture Limited.</p>
+            <p>All Rights Reserved</p>
+          </div>
+        </div>
+      </section>
+    </footer>
+  </body>
+</html>
