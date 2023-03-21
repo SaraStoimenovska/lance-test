@@ -70,6 +70,9 @@
         font-size: 22px;
         font-weight: normal;
       }
+      .quote-text a {
+        color: white;
+      }
 
       .quote-section.step-1 .quote-text,
       .quote-section.step-3 .quote-text,
@@ -112,10 +115,10 @@
 
       @media only screen and (max-width: 600px) {
         .video-text {
-          height: 100%;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-evenly;
+          transform: none!important;
+          top: 0!important;
+          left: 10px!important;
+          padding-top: 30px;
         }
 
         .quote-section .a-logo {
@@ -154,14 +157,30 @@
         <a href="./home.html"><img height="50px" src="./assets/logo.png" /></a>
       </li>
       <div class="menu-icons">
-        <li><a href="#"><img src="assets/facebook-icon.png" /></a></li>
-        <li><a href="#"><img src="assets/instagram-icon.png" /></a></li>
-        <li><a href="#"><img src="assets/twitter-icon.png" /></a></li>
-        <li><a href="#"><img src="assets/tik-tok-icon.png" /></a></li>
+        <li>
+          <a href="https://www.facebook.com/people/ArkiFuture/100088709948622/" target="_blank">
+            <img src="assets/facebook-icon.png" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/arkifuture/" target="_blank">
+            <img src="assets/instagram-icon.png" />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/ArkiFuture" target="_blank">
+            <img src="assets/twitter-icon.png" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.tiktok.com/@arkifuture.com" target="_blank">
+            <img src="assets/tik-tok-icon.png" />
+          </a>
+        </li>
       </div>
       <div class="menu-items topnav"  id="myTopnav">
         <li><a class="active" href="#">Instant Quote</a></li>
-        <li><a href="./how-it-works.html">How it Works</a></li>
+        <li class="blue"><a href="./how-it-works.html" class="blue">How it Works</a></li>
         <li><a href="#">Services ></a></li>
         <li><a href="#">More ></a></li>
         <a href="javascript:void(0);" class="icon">
@@ -170,7 +189,7 @@
       </div>
     </ul>
     <ul class="sidenav-responsive fade" id="myResponsiveTopnav">
-      <li><a href="./how-it-works.html">How it Works</a></li>
+      <li class="blue"><a href="./how-it-works.html" class="blue">How it Works</a></li>
       <li><a href="#">Services ></a></li>
       <li><a href="#">More ></a></li>
     </ul>
@@ -193,6 +212,7 @@
             </div>
         </div>
       </section>
+
       <section class="quote-section step-1">
         <img class="a-logo" src="assets/A logo.svg" width="30%" />
         <div class="quote-text">
@@ -205,8 +225,8 @@
           <p>
             Once you have received our quote and you would like to go ahead, simply pay
             your £299.00 deposit and the process begins. If you have any questions before
-            comiting to our service please email on info@arkifuture.com or call +44 (0) 000
-            0000 during office hours with your questions.
+            comiting to our service please email on <a href="mailto:info@arkifuture.com">info@arkifuture.com</a>
+            or call <a href="tel:+440000000">+44 (0) 000 0000</a> during office hours with your questions.
           </p>
           <br />
           <button class="quote-btn orange subtitle">Instant Quote</button>
@@ -245,8 +265,8 @@
           <p>
             For example, you may have sketched out a new interior layout that wants refining
             to finalising we would advise your the best use of interor or exteria space. If you
-            selected our ‘Feng Shui’ option in our <b class="blue bold">instant quote</b> we will suggest a layout that
-            best reflects the Feng Shui principles.
+            selected our ‘Feng Shui’ option in our <a class="blue" href="#"><b>instant quote</b></a> 
+            we will suggest a layout that best reflects the Feng Shui principles.
           </p>
           <br />
           <button class="quote-btn orange subtitle">Instant Quote</button>
@@ -452,10 +472,18 @@
           <div>
             <p>Our social connections:</p>
             <div class="social-icons">
-              <img src="assets/facebook-white-icon.png" />
-              <img src="assets/instagram-white-icon.png" />
-              <img src="assets/twitter-white-icon.png" />
-              <img src="assets/tik-tok-white-icon.png" />
+              <a href="https://www.facebook.com/people/ArkiFuture/100088709948622/" target="_blank">
+                <img src="assets/facebook-white-icon.png" />
+              </a>
+              <a href="https://www.instagram.com/arkifuture/" target="_blank">
+                <img src="assets/instagram-white-icon.png" />
+              </a>
+              <a href="https://twitter.com/ArkiFuture" target="_blank">
+                <img src="assets/twitter-white-icon.png" />
+              </a>
+              <a href="https://www.tiktok.com/@arkifuture.com" target="_blank">
+                <img src="assets/tik-tok-white-icon.png" />
+              </a>
             </div>
             <div class="no-margin">
               <p>© Copyright ArkiFuture 2023.</p>

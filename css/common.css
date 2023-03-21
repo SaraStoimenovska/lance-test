@@ -46,6 +46,10 @@ body {
     color: white;
   }
 
+  ul.sidenav li a.active:hover {
+    background-color: #ea5a2aaa;
+  }
+
   ul.sidenav .menu-items li a:hover:not(.active) {
     background-color: #555;
     color: white;
@@ -64,11 +68,11 @@ body {
   }
 
   .orange {
-    color: #ea5a2a
+    color: #ea5a2a!important;
   }
 
   .blue {
-    color: #23254f;
+    color: #23254f!important;
   }
 
   .blue-background {
