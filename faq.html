@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="js/common.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/plyr.polyfilled.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/jquery.cookie.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/plyr.css">
+    <link rel="stylesheet" type="text/css" href="css/course_video.css">
+
+    <style>
+      main.content {
+        margin: 0;
+        padding: 0;
+      }
+
+      .video-holder,
+      .gif-section {
+        position: relative;
+      }
+
+      .js-video {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+      }
+
+      .video-text {
+        position: absolute;
+        top: 50%;
+        left: 5%;
+        transform: translate(-5%, -50%);
+      }
+
+      .quote-section {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .quote-section.step-1 {
+        background-color: #6e6f6a;
+      }
+      
+      .quote-section.step-3 {
+        background-color: #5ca0ad;
+      }
+
+      .quote-section.step-2 {
+        background-color: #1e2c51;
+      }
+      
+      .quote-section.step-4 {
+        background-color: #eb665f;
+      }
+
+      .quote-text p:not(.subtitle):not(.title) {
+        font-size: 22px;
+        font-weight: normal;
+      }
+
+      .quote-section.step-1 .quote-text,
+      .quote-section.step-3 .quote-text {
+        padding: 50px 150px 0 50px;
+      }
+
+      .quote-section.step-2 .quote-text,
+      .quote-section.step-4 .quote-text {
+        padding: 50px 50px 0 150px;
+        text-align: right;
+      }
+      .quote-section.step-2.equal-padding .quote-text {
+        padding: 50px 150px;
+      }
+      
+      .quote-section.step-2 .a-logo,
+      .quote-section.step-4 .a-logo {
+        object-position: 0;
+      }
+
+      /* .quote-section.step-2 .quote-text {
+        width: 100%;
+      } */
+
+      .a-logo {
+        object-fit: cover;
+        object-position: 100% 0%;
+        width: 450px;
+        height: 600px;
+      }
+
+      .quote-link {
+        color: white;
+        text-decoration: none;
+        font-weight: normal;
+        margin: 20px 0 45px;
+        display: block;
+      }
+
+      .quote-section.step-2 .quote-text {
+        width: 100%;
+      }
+
+      .questions-container {
+      }
+
+      .question-part {
+        text-align: justify;
+      }
+
+      .question-part .q {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .quote-section.step-2 .quote-text .title,
+      .quote-section.step-2 .quote-text .most-asked,
+      .quote-section.step-2 .quote-text .quote-link {
+        margin-right: 25px;
+      }
+
+      
+      .quote-section.step-2 {
+        align-items: flex-start;
+      }
+
+      .quote-section.step-2 .a-logo {
+        margin-top: 10px;
+      }
+
+      .a {
+        display: none;
+      }
+
+      .a.display-block {
+        display: block;
+      }
+
+      .expanded-arrow {
+        display: none;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .video-text {
+          transform: none!important;
+          top: 0!important;
+          left: 10px!important;
+          padding-top: 30px;
+        }
+
+        .quote-section .a-logo {
+          width: 50px;
+          height: 65px;
+        }
+
+        .quote-text p:not(.subtitle):not(.title) {
+          font-size: 10px;
+        }
+
+        .quote-section.step-1 .quote-text,
+        .quote-section.step-3 .quote-text {
+          padding: 0 20px;
+        }
+
+        .quote-section.step-2 .quote-text,
+        .quote-section.step-4 .quote-text {
+          padding: 20px;
+        }
+
+        .quote-section.step-2.quote-section.step-2.equal-padding {
+          margin-top: -1px;
+        }
+        .quote-section.step-2.quote-section.step-2.equal-padding .quote-text {
+          padding: 20px;
+        }
+
+        .quote-section br {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body onload="slideShow();">
+    <ul class="sidenav">
+      <li class="logo">
+        <a href="./home.html"><img height="50px" src="./assets/logo.png" /></a>
+      </li>
+      <div class="menu-icons">
+        <li>
+          <a href="https://www.facebook.com/people/ArkiFuture/100088709948622/" target="_blank">
+            <img src="assets/facebook-icon.png" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/arkifuture/" target="_blank">
+            <img src="assets/instagram-icon.png" />
+          </a>
+        </li>
+        <li>
+          <a href="https://twitter.com/ArkiFuture" target="_blank">
+            <img src="assets/twitter-icon.png" />
+          </a>
+        </li>
+        <li>
+          <a href="https://www.tiktok.com/@arkifuture.com" target="_blank">
+            <img src="assets/tik-tok-icon.png" />
+          </a>
+        </li>
+      </div>
+      <div class="menu-items topnav"  id="myTopnav">
+        <li><a class="active" href="#">Instant Quote</a></li>
+        <li><a href="./how-it-works.html">How it Works</a></li>
+        <li><a href="#">Services ></a></li>
+        <li><a href="#">More ></a></li>
+        <a href="javascript:void(0);" class="icon">
+          <img class="menu-icon" src="assets/menu-icon.png" onclick="toggleMenu()"/>
+        </a>
+      </div>
+    </ul>
+    <ul class="sidenav-responsive fade" id="myResponsiveTopnav">
+      <li><a href="./how-it-works.html">How it Works</a></li>
+      <li><a href="#">Services ></a></li>
+      <li><a href="#">More ></a></li>
+    </ul>
+
+    <main class="content">
+      <section class="video-section">
+        <div class="video-holder">
+            <video class="js-video" playsinline autoplay muted loop>
+              <source src="assets/videos/arkifuture-floorplan-360p.mp4" type="video/mp4" size="360" />
+              <source src="assets/videos/arkifuture-floorplan-720p.mp4" type="video/mp4" size="720" />
+              <source  src="assets/videos/arkifuture-floorplan-1080p.mp4" type="video/mp4" size="1080" />
+            </video>
+            <div class="video-text">
+                <p class="orange title">We are always here to answer </br>
+                  any of your questions...
+                </p>
+                <p class="blue subtitle">Get in touch with us today either by <br/>
+                  online chat, email or simply call us
+                </p>
+            </div>
+        </div>
+      </section>
+      <section class="quote-section step-1">
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+        <div class="quote-text">
+          <p class="title">Frequently asked questions...</p>
+          <p>
+            If your planning permission, content order,<br />
+            architectual or general questions are not<br />
+            answered below, just give a call, email us or<br />
+            user our ‘live’ online chat below
+          </p>
+        </div>
+      </section>
+
+      <section class="quote-section step-2">
+        <div class="quote-text">
+          <p class="title">General questions</p>
+          <p class="most-asked">
+            5 most asked general questions. Select the orange arrow below to expand the<br />
+            question to see the answer
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Click to open</button>
+          <br />
+        </div>
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+      </section>
+      <section class="quote-section step-2 equal-padding">
+        <div class="quote-text">
+          <div class="questions-container">
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you charge for plan draw admendments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">What do you need to get started?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you charge for plan draw admendments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Does my quote include Structural calculations?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">When do you take payments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you play my council fees?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-section step-3">
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+        <div class="quote-text">
+          <p class="title">Planning permission drawings questions</p>
+          <p class="subtitle">
+            This section contain all the answers to your<br />
+            questions planning permissions
+          </p>
+          <p>
+            Most asked general questions. Select the orange arrow below to expand the<br />
+            question to see the answer.<br />
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Click to open</button>
+        </div>
+      </section>
+
+      <section class="quote-section step-4">
+        <div class="quote-text">
+          <p class="title">Measurements Questions</p>
+          <p class="subtitle">
+            This section contain all the answers to your<br />
+            questions about providing us your measuring<br />
+            and photographys...
+          </p>
+          <p>
+            Most asked general questions. Select the orange arrow below to expand the<br />
+            question to see the answer.<br />
+          </p>
+          <br />
+          <button class="quote-btn orange subtitle">Click to open</button>
+        </div>
+        <img class="a-logo" src="assets/A logo.svg" width="30%" />
+      </section>
+    </main>
+
+    <footer>
+      <section class="testimonials">
+        <div class="blue testimonials-text">
+          <p class="title">ArkiFuture testimionals</p>
+        </div>
+        <div class="reviews">
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-4-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id. Vivamus dapibus mauris
+                    consectetur sem pretium, vel faucibus
+                    nunc finibus media</span>
+                  </p>
+                  <p class="author">Jon Doe</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-5-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id.</span>
+                  </p>
+                  <p class="author">Anna Maria</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-4-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id. Vivamus dapibus mauris
+                    consectetur sem pretium, vel faucibus
+                    nunc finibus media</span>
+                  </p>
+                  <p class="author">Steph Smith</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+          <div class="review fade">
+            <div class="review-images">
+              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="stars-img" src="assets/stars-voting-5-stars-rating.png"/>
+            </div>
+            <div class="review-box">
+              <div class="arrow" onclick="plusSlides(-1)">❮</div>
+              <div class="review-box-container">
+                <p class="quotes-container">
+                  <span class="quotes start"></span>
+                  <span class="quotes end"></span>
+                </p>
+                <div class="text-container">
+                  <p>
+                    <span class="text">Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Pellentesque consequat
+                    congue orci, finibus vestibulum ex
+                    fringilla id.</span>
+                  </p>
+                  <p class="author">Samantha Fox</p>
+                </div>
+              </div>
+              <div class="arrow" onclick="plusSlides(1)">❯</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-promise">
+        <img class="guarantee-img" src="assets/30-days-money-back-guarantee-platzhirsch-hd-png.png" />
+        <div class="promise-text">
+          <p class="title">Our Promise to you</p>
+          <p>We do not do spirling costs or want you to have any unexpected surprises,
+            so the price you see is the final price you pay.
+          </p>
+          <p>With all our work you get 3 sets of changes included in our price.
+            If you require additional plans this will be quoted at an additional cost as
+            per our <a href="#" style="text-decoration: none;" class="blue">terms & conditions.</a>
+          </p>
+          <p>
+            In the unfortuante event, that you are not happy with our work, we will
+            issuse a full refund - Guaranteed!
+          </p>
+        </div>
+      </section>
+      <section class="section-featured">
+        <p class="blue title featured-text">As featured in...</p>
+        <div class="featured-container">
+          <div class="featured-image-container">
+            <img src="assets/google review logo.png" />
+          </div>
+          <div class="featured-image-container">
+            <img src="assets/AJ+logo.png" />
+          </div>
+          <div class="featured-image-container">
+            <img src="assets/houzz.png" />
+          </div>
+          <div class="featured-image-container">
+            <img src="assets/trustpilot.png" />
+          </div>
+        </div>
+      </section>
+      <section class="section-footer blue-background">
+        <div class="footer-container">
+          <div>
+            <p>Our social connections:</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/people/ArkiFuture/100088709948622/" target="_blank">
+                <img src="assets/facebook-white-icon.png" />
+              </a>
+              <a href="https://www.instagram.com/arkifuture/" target="_blank">
+                <img src="assets/instagram-white-icon.png" />
+              </a>
+              <a href="https://twitter.com/ArkiFuture" target="_blank">
+                <img src="assets/twitter-white-icon.png" />
+              </a>
+              <a href="https://www.tiktok.com/@arkifuture.com" target="_blank">
+                <img src="assets/tik-tok-white-icon.png" />
+              </a>
+            </div>
+            <div class="no-margin">
+              <p>© Copyright ArkiFuture 2023.</p>
+              <p>© ArkiFuture is the trademark for ArkiFuture Limited.</p>
+              <p>All Rights Reserved</p>
+            </div>
+          </div>
+          <div class="footer-address">
+            <p>ArkiFuture Limited</p>
+            <p>20-22 WenlockRoad, London, N1 7GU</p>
+            <p>United Kingdom</p>
+            <p>Email: <a href="mailto:info@arkifuture.com">info@arkifuture.com</a></p>
+          </div>
+          <div class="copyright-mobile">
+            <p>© Copyright ArkiFuture 2023.</p>
+            <p>© ArkiFuture is the trademark for ArkiFuture Limited.</p>
+            <p>All Rights Reserved</p>
+          </div>
+        </div>
+      </section>
+    </footer>
+  </body>
+
+  <script>
+    function onQuestionClicked(question) {
+      console.log(question)
+      var allAnswers = document.getElementsByClassName('a fade');
+      var allExpandedArrows = document.getElementsByClassName('expanded-arrow');
+      var answer = question.nextElementSibling;
+      var expandArrow = question.children[0];
+      var expandedArrow = question.children[1];
+        
+      if (answer.style.display == 'none') {
+        for (let i = 0; i < allAnswers.length; i++) {
+          allAnswers[i].style.display = 'none';
+        }
+        for (let i = 0; i < allExpandedArrows.length; i++) {
+          allExpandedArrows[i].style.display = 'none';
+        }
+        answer.style.display = 'block'
+        expandArrow.style.display = 'none';
+        expandedArrow.style.display = 'block';
+      } else {
+        answer.style.display = 'none';
+        expandArrow.style.display = 'block';
+        expandedArrow.style.display = 'none';
+      }
+    }
+  </script>
+</html>
