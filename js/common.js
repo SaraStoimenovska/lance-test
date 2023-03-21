@@ -1,14 +1,23 @@
 function toggleMenu() {
   var x = document.getElementById("myTopnav");
   var myResponsiveTopnav = document.getElementById("myResponsiveTopnav");
-  console.log(x.className)
   if (x.className === "menu-items topnav") {
-      // console.log('x.className')
     x.className += " responsive";
     myResponsiveTopnav.className += " responsive";
   } else {
       x.className = "menu-items topnav";
       myResponsiveTopnav.className = "sidenav-responsive fade";
+  }
+}
+
+function toggleDropdown(element) {
+  var dropdownContent = element.nextElementSibling;
+  if (dropdownContent) {
+    if (!dropdownContent.style.display || dropdownContent.style.display == '' || dropdownContent.style.display == 'none') {
+      dropdownContent.style.display = 'block';
+    } else {
+      dropdownContent.style.display = 'none';
+    }
   }
 }
 

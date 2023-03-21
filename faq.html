@@ -216,8 +216,22 @@
       <div class="menu-items topnav"  id="myTopnav">
         <li><a class="active" href="#">Instant Quote</a></li>
         <li><a href="./how-it-works.html">How it Works</a></li>
-        <li><a href="#">Services ></a></li>
-        <li><a href="#">More ></a></li>
+        <li class="dropdown">
+          <a class="dropbtn">Services ></a>
+          <div class="dropdown-content">
+            <a class="inner-link blue" href="./faq.html">FAQ</a>
+            <a class="inner-link" href="#">Link 2</a>
+            <a class="inner-link" href="#">Link 3</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a class="dropbtn">More ></a>
+          <div class="dropdown-content">
+            <a class="inner-link" href="#">Contact us</a>
+            <a class="inner-link" href="#">Link 2</a>
+            <a class="inner-link" href="#">Link 3</a>
+          </div>
+        </li>
         <a href="javascript:void(0);" class="icon">
           <img class="menu-icon" src="assets/menu-icon.png" onclick="toggleMenu()"/>
         </a>
@@ -225,8 +239,22 @@
     </ul>
     <ul class="sidenav-responsive fade" id="myResponsiveTopnav">
       <li><a href="./how-it-works.html">How it Works</a></li>
-      <li><a href="#">Services ></a></li>
-      <li><a href="#">More ></a></li>
+      <li class="dropdown">
+        <a class="dropbtn" onclick="toggleDropdown(this)">Services ></a>
+        <div class="dropdown-content">
+          <a class="inner-link blue" href="./faq.html">FAQ</a>
+          <a class="inner-link" href="#">Link 2</a>
+          <a class="inner-link" href="#">Link 3</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a class="dropbtn" onclick="toggleDropdown(this)">More ></a>
+        <div class="dropdown-content">
+          <a class="inner-link" href="#">Contact us</a>
+          <a class="inner-link" href="#">Link 2</a>
+          <a class="inner-link" href="#">Link 3</a>
+        </div>
+      </li>
     </ul>
 
     <main class="content">

@@ -337,7 +337,6 @@ body {
 
     .sidenav-responsive.responsive li {
       list-style: none;
-      padding: 5px 0;
     }
 
     .sidenav-responsive.responsive li a {
@@ -426,4 +425,47 @@ body {
     .footer-container .copyright-mobile {
       display: block;
     }
+
+    .sidenav-responsive a {
+      width: calc(100% - 20px);
+      display: block;
+      padding: 10px;
+    }
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #eb7e5a;
+    min-width: 150px;
+    width: 150px;
+    max-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .topnav .dropdown-content a.inner-link:hover:not(.active) {
+    background-color: #777!important;
+  }
+
+  .dropdown-content a.inner-link:not(.blue) {
+    color: #fff!important;
+  }
+
+  .dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .topnav a:hover, .dropdown:hover .dropbtn {
+    background-color: #555;
+    color: white;
+  }
+  
+  .topnav .dropdown:hover .dropdown-content {
+    display: block;
   }
