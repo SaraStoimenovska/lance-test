@@ -619,14 +619,10 @@
       var section = document.getElementsByClassName('quote-section step-2 equal-padding');
         
       section[0] && section[0].classList.toggle('visible');
-      // if (section.style.display == 'none') {
-      //   section.style.display = 'block'
-      // } else {
-      //   section.style.display = 'none';
-      // }
     }
 
     function onQuestionClicked(question) {
+      var questionClasses = question.className;
       var allQuestions = document.getElementsByClassName('q');
       var allAnswers = document.getElementsByClassName('a fade');
       var allExpandArrows = document.getElementsByClassName('expand-arrow');
@@ -635,6 +631,10 @@
       var answerStyle = answer.style.display;
       var expandArrow = question.children[0];
       var expandedArrow = question.children[1];
+      var expandedArrow = question.children[1];
+
+      console.log(questionClasses)
+      console.log(question.className)
       
       for (let i = 0; i < allQuestions.length; i++) {
         allQuestions[i].className = 'q';
@@ -647,10 +647,12 @@
         answer.style.display = 'block'
         expandArrow.style.display = 'none';
         expandedArrow.style.display = 'block';
+        question.className = 'q orange';
       } else {
         answerStyle = 'none';
         expandArrow.style.display = 'block';
         expandedArrow.style.display = 'none';
+        question.className = 'q';
       }
     }
   </script>
