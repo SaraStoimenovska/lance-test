@@ -75,6 +75,14 @@
         padding: 50px 50px 0 150px;
         text-align: right;
       }
+
+      .quote-section.step-2.equal-padding  {
+        display: none;
+      }
+      .quote-section.step-2.equal-padding.visible  {
+        display: flex;
+      }
+
       .quote-section.step-2.equal-padding .quote-text {
         padding: 50px 150px;
       }
@@ -87,6 +95,10 @@
       /* .quote-section.step-2 .quote-text {
         width: 100%;
       } */
+
+      .expand-arrow, .expanded-arrow {
+        font-size: 40px;
+      }
 
       .a-logo {
         object-fit: cover;
@@ -117,6 +129,11 @@
       .question-part .q {
         display: flex;
         justify-content: space-between;
+        align-items: center;
+      }
+
+      .question-part .q:hover, .question-part .q.active {
+        color: #ea5a2a!important;
       }
 
       .quote-section.step-2 .quote-text .title,
@@ -135,6 +152,7 @@
       }
 
       .a {
+        font-style: italic;
         display: none;
       }
 
@@ -179,6 +197,10 @@
         .quote-section.step-2.quote-section.step-2.equal-padding .quote-text {
           padding: 20px;
         }
+
+        .expand-arrow, .expanded-arrow {
+        font-size: 20px;
+      }
 
         .quote-section br {
           display: none;
@@ -296,7 +318,7 @@
             question to see the answer
           </p>
           <br />
-          <button class="quote-btn orange subtitle">Click to open</button>
+          <button class="quote-btn orange subtitle" onclick="onDisplayQuestions()">Click to open</button>
           <br />
         </div>
         <img class="a-logo" src="assets/A logo.svg" width="30%" />
@@ -591,26 +613,40 @@
   </body>
 
   <script>
+    function onDisplayQuestions() {
+      var section = document.getElementsByClassName('quote-section step-2 equal-padding');
+        
+      section[0] && section[0].classList.toggle('visible');
+      // if (section.style.display == 'none') {
+      //   section.style.display = 'block'
+      // } else {
+      //   section.style.display = 'none';
+      // }
+    }
+
     function onQuestionClicked(question) {
-      console.log(question)
+      var allQuestions = document.getElementsByClassName('q');
       var allAnswers = document.getElementsByClassName('a fade');
+      var allExpandArrows = document.getElementsByClassName('expand-arrow');
       var allExpandedArrows = document.getElementsByClassName('expanded-arrow');
       var answer = question.nextElementSibling;
+      var answerStyle = answer.style.display;
       var expandArrow = question.children[0];
       var expandedArrow = question.children[1];
-        
-      if (answer.style.display == 'none') {
-        for (let i = 0; i < allAnswers.length; i++) {
-          allAnswers[i].style.display = 'none';
-        }
-        for (let i = 0; i < allExpandedArrows.length; i++) {
-          allExpandedArrows[i].style.display = 'none';
-        }
+      
+      for (let i = 0; i < allQuestions.length; i++) {
+        allQuestions[i].className = 'q';
+        allAnswers[i].style.display = 'none';
+        allExpandArrows[i].style.display = 'block';
+        allExpandedArrows[i].style.display = 'none';
+      }
+
+      if (answerStyle == 'none') {
         answer.style.display = 'block'
         expandArrow.style.display = 'none';
         expandedArrow.style.display = 'block';
       } else {
-        answer.style.display = 'none';
+        answerStyle = 'none';
         expandArrow.style.display = 'block';
         expandedArrow.style.display = 'none';
       }
