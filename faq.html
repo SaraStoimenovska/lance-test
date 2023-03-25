@@ -76,14 +76,14 @@
         text-align: right;
       }
 
-      .quote-section.step-2.equal-padding  {
+      .quote-section.equal-padding  {
         display: none;
       }
-      .quote-section.step-2.equal-padding.visible  {
+      .quote-section.equal-padding.visible  {
         display: flex;
       }
 
-      .quote-section.step-2.equal-padding .quote-text {
+      .quote-section.equal-padding .quote-text {
         padding: 50px 150px;
       }
       
@@ -115,7 +115,7 @@
         display: block;
       }
 
-      .quote-section.step-2 .quote-text {
+      .quote-section .quote-text {
         width: 100%;
       }
 
@@ -191,10 +191,10 @@
           padding: 20px;
         }
 
-        .quote-section.step-2.quote-section.step-2.equal-padding {
+        .quote-section.step-2.quote-section.equal-padding {
           margin-top: -1px;
         }
-        .quote-section.step-2.quote-section.step-2.equal-padding .quote-text {
+        .quote-section.step-2.quote-section.equal-padding .quote-text {
           padding: 20px;
         }
 
@@ -320,12 +320,12 @@
             question to see the answer
           </p>
           <br />
-          <button class="quote-btn orange subtitle" onclick="onDisplayQuestions()">Click to open</button>
+          <button class="quote-btn orange subtitle" onclick="onDisplayQuestions(2)">Click to open</button>
           <br />
         </div>
         <img class="a-logo" src="assets/A logo.svg" width="30%" />
       </section>
-      <section class="quote-section step-2 equal-padding">
+      <section class="quote-section step-2 equal-padding" id="answers">
         <div class="quote-text">
           <div class="questions-container">
             <div class="question-part">
@@ -405,7 +405,73 @@
             question to see the answer.<br />
           </p>
           <br />
-          <button class="quote-btn orange subtitle">Click to open</button>
+          <button class="quote-btn orange subtitle" onclick="onDisplayQuestions(3)">Click to open</button>
+        </div>
+      </section>
+      <section class="quote-section step-3 equal-padding" id="answers">
+        <div class="quote-text">
+          <div class="questions-container">
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you charge for plan draw admendments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">What do you need to get started?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you charge for plan draw admendments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Does my quote include Structural calculations?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">When do you take payments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you play my council fees?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -422,9 +488,75 @@
             question to see the answer.<br />
           </p>
           <br />
-          <button class="quote-btn orange subtitle">Click to open</button>
+          <button class="quote-btn orange subtitle" onclick="onDisplayQuestions(4)">Click to open</button>
         </div>
         <img class="a-logo" src="assets/A logo.svg" width="30%" />
+      </section>
+      <section class="quote-section step-4 equal-padding" id="answers">
+        <div class="quote-text">
+          <div class="questions-container">
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you charge for plan draw admendments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">What do you need to get started?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you charge for plan draw admendments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Does my quote include Structural calculations?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">When do you take payments?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+            <div class="question-part">
+              <p class="q" onclick="onQuestionClicked(this)">Do you play my council fees?
+                <span class="expand-arrow">→</span>
+                <span class="expanded-arrow">↓</span>
+              </p>
+              <p class="a fade" style="display: none;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque consequat
+                congue orci, finibus vestibulum ex fringilla id. Vivamus dapibus mauris
+                consectetur sem pretium, vel faucibus nunc finibus media
+              </p>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 
@@ -615,14 +747,14 @@
   </body>
 
   <script>
-    function onDisplayQuestions() {
-      var section = document.getElementsByClassName('quote-section step-2 equal-padding');
-        
-      section[0] && section[0].classList.toggle('visible');
+    function onDisplayQuestions(id) {
+      var sections = document.getElementsByClassName(`quote-section step-${id} equal-padding`);
+      var section = sections && sections.length && sections[0];
+      section.classList.toggle('visible');
+      section.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 
     function onQuestionClicked(question) {
-      var questionClasses = question.className;
       var allQuestions = document.getElementsByClassName('q');
       var allAnswers = document.getElementsByClassName('a fade');
       var allExpandArrows = document.getElementsByClassName('expand-arrow');
@@ -631,11 +763,7 @@
       var answerStyle = answer.style.display;
       var expandArrow = question.children[0];
       var expandedArrow = question.children[1];
-      var expandedArrow = question.children[1];
 
-      console.log(questionClasses)
-      console.log(question.className)
-      
       for (let i = 0; i < allQuestions.length; i++) {
         allQuestions[i].className = 'q';
         allAnswers[i].style.display = 'none';
