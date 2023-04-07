@@ -231,6 +231,7 @@
     </style>
   </head>
   <body onload="slideShow(); createCaptcha()">
+
     <ul class="sidenav">
       <li class="logo">
         <a href="./home.html"><img height="50px" src="./assets/logo.png" /></a>
@@ -358,7 +359,7 @@
             </div>
           </div>
 
-          <form action="http://arkifuture.com/forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="http://www.arkifuture.com/forms/contact.php" method="post" role="form" class="php-email-form">
             <div class="row">
               <div class="form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Name" required />
@@ -386,7 +387,20 @@
             </div>
             <div class="error-message captcha">Invalid captcha</div>
             <div class="form-group my-3">
-              <div class="loading">Loading</div>
+              <div class="loading">
+                <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <style>.spinner_Wezc{transform-origin:center;animation:spinner_Oiah .75s step-end infinite}@keyframes spinner_Oiah{8.3%{transform:rotate(30deg)}16.6%{transform:rotate(60deg)}25%{transform:rotate(90deg)}33.3%{transform:rotate(120deg)}41.6%{transform:rotate(150deg)}50%{transform:rotate(180deg)}58.3%{transform:rotate(210deg)}66.6%{transform:rotate(240deg)}75%{transform:rotate(270deg)}83.3%{transform:rotate(300deg)}91.6%{transform:rotate(330deg)}100%{transform:rotate(360deg)}}</style>
+                  <g class="spinner_Wezc">
+                    <circle cx="12" cy="2.5" r="1.5" opacity=".14" fill="#ea5a2a"/>
+                    <circle cx="16.75" cy="3.77" r="1.5" opacity=".29" fill="#ea5a2a"/>
+                    <circle cx="20.23" cy="7.25" r="1.5" opacity=".43" fill="#ea5a2a"/>
+                    <circle cx="21.50" cy="12.00" r="1.5" opacity=".57" fill="#ea5a2a"/>
+                    <circle cx="20.23" cy="16.75" r="1.5" opacity=".71" fill="#ea5a2a"/>
+                    <circle cx="16.75" cy="20.23" r="1.5" opacity=".86" fill="#ea5a2a"/>
+                    <circle cx="12" cy="21.5" r="1.5" fill="#ea5a2a"/>
+                  </g>
+                </svg>
+              </div>
               <div class="error-message"></div>
               <div class="sent-message">
                 Your message has been sent.<br />Our team will be in touch
@@ -660,6 +674,6 @@
     }
   </script>
 
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="http://www.arkifuture.com/assets/vendor/php-email-form/validate.js"></script>
 
 </html>
