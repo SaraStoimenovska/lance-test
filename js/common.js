@@ -41,7 +41,9 @@ function showSlides(n) {
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
-  slides[slideIndex-1].style.display = "block";  
+  if (slides[slideIndex-1]) {
+    slides[slideIndex-1].style.display = "block";  
+  }
 }
 
 document.onload = slideShow();
