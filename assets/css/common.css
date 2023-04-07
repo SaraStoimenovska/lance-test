@@ -149,7 +149,7 @@ body {
     left: 50%;
     width: 100px;
     height: 100px;
-    background-image: url('../assets/arkifuture\ icon.svg');
+    background-image: url('../images/arkifuture-icon.svg');
     transform: translate(-50%, -50%);
     border: 5px solid white;
     border-radius: 50%;

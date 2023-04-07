@@ -7,16 +7,11 @@
   */
 
   // Replace contact@example.com with your real receiving email address
-  $receiving_email_address = 'sara.stoimenovska@yahoo.com';
-  // $receiving_email_address = 'info@arkiFuture.com';
+  $receiving_email_address = 'info@arkiFuture.com';
 
-  echo '<script>console.log("Your stuff here")</script>'
-  // if( file_exists($php_email_form = './php-email-form.php' )) {
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
-    echo '<script>console.log("Your stuff here")</script>'
     include( $php_email_form );
   } else {
-    echo '<script>console.log("Unable to load the "PHP Email Form" Library")</script>'
     die( 'Unable to load the "PHP Email Form" Library!');
   }
 
@@ -29,20 +24,14 @@
   $contact->subject = $_POST['subject'];
 
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
-  
-  // $contact->smtp = array(
-  //   'host' => 'example.com',
-  //   'username' => 'example',
-  //   'password' => 'pass',
-  //   'port' => '587'
-  // );
+  /*
   $contact->smtp = array(
-    'host' => 'smtp.mail.yahoo.com',
-    'username' => 'sara.stoimenovska@yahoo.com',
-    'password' => 'ruklvwlgkldtsedj',
-    'port' => '465 '
+    'host' => 'example.com',
+    'username' => 'example',
+    'password' => 'pass',
+    'port' => '587'
   );
-  
+  */
 
   $contact->add_message( $_POST['name'], 'From');
   $contact->add_message( $_POST['email'], 'Email');

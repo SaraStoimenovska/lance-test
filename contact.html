@@ -5,17 +5,17 @@
 
     <title>ArkiFuture</title>
 
-    <link href="assets/arkifuture-tab-favicon.png" rel="icon">
+    <link href="assets/images/arkifuture-tab-favicon.png" rel="icon">
 
-    <script src="js/common.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/plyr.polyfilled.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/jquery.cookie.min.js"></script>
+    <script src="assets/js/common.js"></script>
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/plyr.polyfilled.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/jquery.cookie.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/common.css" />
-    <link rel="stylesheet" type="text/css" href="css/plyr.css" />
-    <link rel="stylesheet" type="text/css" href="css/course_video.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/plyr.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/course_video.css" />
 
     <style>
       main.content {
@@ -136,7 +136,7 @@
       }
 
       .d-block {
-        display: block;
+        display: block!important;
       }
 
       .sent-message {
@@ -152,6 +152,24 @@
           display: none;
           color: #fff;
           background: #ea5a2a;
+          text-align: center;
+          padding: 15px;
+          font-weight: 600;
+      }
+
+      .error-message-captcha {
+          display: none;
+          color: #fff;
+          background: #f00;
+          text-align: center;
+          padding: 15px;
+          font-weight: 600;
+      }
+
+      .sent-message-captcha {
+          display: none;
+          color: #fff;
+          background: #18d26e;
           text-align: center;
           padding: 15px;
           font-weight: 600;
@@ -234,7 +252,7 @@
 
     <ul class="sidenav">
       <li class="logo">
-        <a href="./home.html"><img height="50px" src="./assets/logo.png" /></a>
+        <a href="./home.html"><img height="50px" src="./assets/images/logo.png" /></a>
       </li>
       <div class="menu-icons">
         <li>
@@ -242,22 +260,22 @@
             href="https://www.facebook.com/people/ArkiFuture/100088709948622/"
             target="_blank"
           >
-            <img src="assets/facebook-icon.png" />
+            <img src="assets/images/facebook-icon.png" />
           </a>
         </li>
         <li>
           <a href="https://www.instagram.com/arkifuture/" target="_blank">
-            <img src="assets/instagram-icon.png" />
+            <img src="assets/images/instagram-icon.png" />
           </a>
         </li>
         <li>
           <a href="https://twitter.com/ArkiFuture" target="_blank">
-            <img src="assets/twitter-icon.png" />
+            <img src="assets/images/twitter-icon.png" />
           </a>
         </li>
         <li>
           <a href="https://www.tiktok.com/@arkifuture.com" target="_blank">
-            <img src="assets/tik-tok-icon.png" />
+            <img src="assets/images/tik-tok-icon.png" />
           </a>
         </li>
       </div>
@@ -284,7 +302,7 @@
         <a href="javascript:void(0);" class="icon">
           <img
             class="menu-icon"
-            src="assets/menu-icon.png"
+            src="assets/images/menu-icon.png"
             onclick="toggleMenu()"
           />
         </a>
@@ -326,7 +344,7 @@
           <div class="contact-container">
             <div class="address card">
               <div class="icon-container">
-                <img src="assets/pin-icon.png" class="icon" />
+                <img src="assets/images/pin-icon.png" class="icon" />
               </div>
               <div>
                 <h4>Location:</h4>
@@ -338,7 +356,7 @@
 
             <div class="email card">
               <div class="icon-container">
-                <img src="assets/email-icon.png" class="icon" />
+                <img src="assets/images/email-icon.png" class="icon" />
               </div>
               <div>
                 <h4>Email:</h4>
@@ -350,7 +368,7 @@
 
             <div class="number card">
               <div class="icon-container">
-                <img src="assets/mobile-icon.png" class="icon" />
+                <img src="assets/images/mobile-icon.png" class="icon" />
               </div>
               <div>
                 <h4>Call:</h4>
@@ -385,7 +403,7 @@
                 <button class="captcha-btn" onclick="validateCaptcha()">Validate Captcha</button>
               </div>
             </div>
-            <div class="error-message captcha">Invalid captcha</div>
+            <div class="error-message-captcha">Invalid captcha</div>
             <div class="form-group my-3">
               <div class="loading">
                 <svg width="30" height="30" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -423,10 +441,10 @@
         <div class="reviews">
           <div class="review fade">
             <div class="review-images">
-              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="google-img" src="assets/images/trustpilot.png" />
               <img
                 class="stars-img"
-                src="assets/stars-voting-4-stars-rating.png"
+                src="assets/images/stars-voting-4-stars-rating.png"
               />
             </div>
             <div class="review-box">
@@ -453,10 +471,10 @@
           </div>
           <div class="review fade">
             <div class="review-images">
-              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="google-img" src="assets/images/trustpilot.png" />
               <img
                 class="stars-img"
-                src="assets/stars-voting-5-stars-rating.png"
+                src="assets/images/stars-voting-5-stars-rating.png"
               />
             </div>
             <div class="review-box">
@@ -482,10 +500,10 @@
           </div>
           <div class="review fade">
             <div class="review-images">
-              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="google-img" src="assets/images/trustpilot.png" />
               <img
                 class="stars-img"
-                src="assets/stars-voting-4-stars-rating.png"
+                src="assets/images/stars-voting-4-stars-rating.png"
               />
             </div>
             <div class="review-box">
@@ -512,10 +530,10 @@
           </div>
           <div class="review fade">
             <div class="review-images">
-              <img class="google-img" src="assets/trustpilot.png" />
+              <img class="google-img" src="assets/images/trustpilot.png" />
               <img
                 class="stars-img"
-                src="assets/stars-voting-5-stars-rating.png"
+                src="assets/images/stars-voting-5-stars-rating.png"
               />
             </div>
             <div class="review-box">
@@ -544,7 +562,7 @@
       <section class="section-promise">
         <img
           class="guarantee-img"
-          src="assets/30-days-money-back-guarantee-platzhirsch-hd-png.png"
+          src="assets/images/30-days-money-back-guarantee-platzhirsch-hd-png.png"
         />
         <div class="promise-text">
           <p class="title">Our Promise to you</p>
@@ -570,16 +588,16 @@
         <p class="blue title featured-text">As featured in...</p>
         <div class="featured-container">
           <div class="featured-image-container">
-            <img src="assets/google review logo.png" />
+            <img src="assets/images/google review logo.png" />
           </div>
           <div class="featured-image-container">
-            <img src="assets/AJ+logo.png" />
+            <img src="assets/images/AJ+logo.png" />
           </div>
           <div class="featured-image-container">
-            <img src="assets/houzz.png" />
+            <img src="assets/images/houzz.png" />
           </div>
           <div class="featured-image-container">
-            <img src="assets/trustpilot.png" />
+            <img src="assets/images/trustpilot.png" />
           </div>
         </div>
       </section>
@@ -592,16 +610,16 @@
                 href="https://www.facebook.com/people/ArkiFuture/100088709948622/"
                 target="_blank"
               >
-                <img src="assets/facebook-white-icon.png" />
+                <img src="assets/images/facebook-white-icon.png" />
               </a>
               <a href="https://www.instagram.com/arkifuture/" target="_blank">
-                <img src="assets/instagram-white-icon.png" />
+                <img src="assets/images/instagram-white-icon.png" />
               </a>
               <a href="https://twitter.com/ArkiFuture" target="_blank">
-                <img src="assets/twitter-white-icon.png" />
+                <img src="assets/images/twitter-white-icon.png" />
               </a>
               <a href="https://www.tiktok.com/@arkifuture.com" target="_blank">
-                <img src="assets/tik-tok-white-icon.png" />
+                <img src="assets/images/tik-tok-white-icon.png" />
               </a>
             </div>
             <div class="no-margin">
@@ -632,6 +650,7 @@
   <script>
     var code;
     document.getElementById("submit").disabled = true;
+    document.getElementsByClassName("captcha-btn")[0].style.backgroundColor = '#ea5a2a';
     
     function createCaptcha() {
       //clear the contents of captcha div first 
@@ -665,15 +684,17 @@
       event.preventDefault();
       if (document.getElementById("cpatchaTextBox").value == code) {
         document.getElementById("submit").disabled = false;
-        document.getElementsByClassName("error-message captcha")[0].style.display = 'none';
+        document.getElementsByClassName("error-message-captcha")[0].style.display = 'none';
+        document.getElementsByClassName("captcha-btn")[0].style.backgroundColor = '#18d26e';
       }else{
-        document.getElementsByClassName("error-message captcha")[0].style.display = 'block';
+        document.getElementsByClassName("captcha-btn")[0].style.backgroundColor = '#ea5a2a';
+        document.getElementsByClassName("error-message-captcha")[0].style.display = 'block';
         document.getElementById("submit").disabled = true;
         createCaptcha();
       }
     }
   </script>
 
-  <script src="http://www.arkifuture.com/assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
 
 </html>

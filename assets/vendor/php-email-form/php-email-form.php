@@ -83,8 +83,6 @@ class PHP_Email_Form {
 
   public function send() {
 
-    echo '<script>console.log("send")</script>'
-
     if( !empty(trim($this->honeypot)) ) {
       return 'OK';
     }
